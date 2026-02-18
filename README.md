@@ -4,6 +4,7 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=coda-school_eco-trip-calculator&metric=bugs)](https://sonarcloud.io/summary/new_code?id=coda-school_eco-trip-calculator)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=coda-school_eco-trip-calculator&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=coda-school_eco-trip-calculator)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=coda-school_eco-trip-calculator&metric=coverage)](https://sonarcloud.io/summary/new_code?id=coda-school_eco-trip-calculator)
+[![Green IT](https://github.com/coda-school/eco-trip-calculator/actions/workflows/green-it-analysis.yml/badge.svg)](https://github.com/coda-school/eco-trip-calculator/actions/workflows/green-it-analysis.yml)
 
 > **⚠️ WARNING: This codebase is intentionally written with poor quality for educational purposes!**
 
