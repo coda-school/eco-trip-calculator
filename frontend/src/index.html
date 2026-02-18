@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrip Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Open+Sans:wght@300;400;700&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="public/images/leaf-icon.svg" class="header-icon" alt="">
+            <div class="title">EcoTrip Calculator</div>
+        </div>
+
+        <div class="content">
+            <!-- No labels for inputs! -->
+            <div class="form">
+                <div class="section">
+                    <div class="subtitle">
+                        <img src="public/images/bike-icon.svg" class="subtitle-icon" alt="">
+                        Calculate Your Trip
+                    </div>
+
+                    <div class="input-group">
+                        <span>Distance (km):</span>
+                        <input type="text" id="distance" placeholder="Enter distance">
+                    </div>
+
+                    <div class="input-group">
+                        <span>Transport:</span>
+                        <select id="transport">
+                            <option value="">Select</option>
+                            <option value="bike">Bike</option>
+                            <option value="walk">Walk</option>
+                            <option value="car">Car</option>
+                            <option value="train">Train</option>
+                            <option value="bus">Bus</option>
+                            <option value="plane">Plane</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group" id="carTypeSection" style="display: none;">
+                        <span>Car Type:</span>
+                        <select id="carType">
+                            <option value="">Select</option>
+                            <option value="thermal">Thermal</option>
+                            <option value="electric">Electric</option>
+                            <option value="hybrid">Hybrid</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group" id="passengersSection" style="display: none;">
+                        <span>Passengers:</span>
+                        <input type="text" id="passengers" placeholder="Number of passengers">
+                    </div>
+
+                    <div class="input-group" id="countrySection" style="display: none;">
+                        <span>Country:</span>
+                        <select id="country">
+                            <option value="">Select</option>
+                            <option value="France">🇫🇷 France</option>
+                            <option value="Germany">🇩🇪 Germany</option>
+                            <option value="Poland">🇵🇱 Poland</option>
+                            <option value="Norway">🇳🇴 Norway</option>
+                        </select>
+                    </div>
+
+                    <div class="button" onclick="window.calculate()">Calculate</div>
+                </div>
+
+                <div class="result" id="result" style="display: none;">
+                    <div class="result-title">Result</div>
+                    <div class="result-co2" id="resultCo2"></div>
+                    <div class="result-label" id="resultLabel"></div>
+                </div>
+
+                <div class="section" style="margin-top: 40px;">
+                    <div class="subtitle">
+                        <img src="public/images/car-icon.svg" class="subtitle-icon" alt="">
+                        Compare Two Trips
+                    </div>
+
+                    <div class="compare-container">
+                        <div class="trip-form">
+                            <div class="trip-title">Trip 1</div>
+                            <div class="input-group">
+                                <span>Distance:</span>
+                                <input type="text" id="distance1" placeholder="km">
+                            </div>
+                            <div class="input-group">
+                                <span>Transport:</span>
+                                <select id="transport1">
+                                    <option value="">Select</option>
+                                    <option value="bike">Bike</option>
+                                    <option value="walk">Walk</option>
+                                    <option value="car">Car</option>
+                                    <option value="train">Train</option>
+                                    <option value="bus">Bus</option>
+                                    <option value="plane">Plane</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="trip-form">
+                            <div class="trip-title">Trip 2</div>
+                            <div class="input-group">
+                                <span>Distance:</span>
+                                <input type="text" id="distance2" placeholder="km">
+                            </div>
+                            <div class="input-group">
+                                <span>Transport:</span>
+                                <select id="transport2">
+                                    <option value="">Select</option>
+                                    <option value="bike">Bike</option>
+                                    <option value="walk">Walk</option>
+                                    <option value="car">Car</option>
+                                    <option value="train">Train</option>
+                                    <option value="bus">Bus</option>
+                                    <option value="plane">Plane</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="button" onclick="window.compare()">Compare</div>
+                </div>
+
+                <div class="compare-result" id="compareResult" style="display: none;">
+                    <div class="result-title">Comparison Result</div>
+                    <div id="compareContent"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>
+                <img src="public/images/leaf-icon.svg" class="footer-icon" alt="">
+                <img src="public/images/bike-icon.svg" class="footer-icon" alt="">
+                <img src="public/images/train-icon.svg" class="footer-icon" alt="">
+                <img src="public/images/car-icon.svg" class="footer-icon" alt="">
+            </div>
+            <p style="margin-top: 15px; font-size: 14px;">
+                EcoTrip - Calculate your carbon footprint
+            </p>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "ecotrip-frontend",
+  "version": "1.0.0",
+  "description": "EcoTrip Calculator Frontend",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && cp src/index.html dist/ && cp src/style.css dist/ && cp -r public dist/",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "dev": "tsc --watch",
+    "serve": "npm run build && npx http-server dist -a 0.0.0.0 -p 8080"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.11.0",
+    "vitest": "^4.0.18",
+    "@vitest/ui": "^4.0.18",
+    "@vitest/coverage-v8": "4.0.18",
+    "jsdom": "^23.2.0"
+  }
+}
